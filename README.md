@@ -1,71 +1,96 @@
-# Ex.No: 3  Basic movements in Unity 
-### DATE:            26-10-2026                                                                
+# Ex.No: 4  Implementation of Kinematic movement -seek and Flee behavior in Unity
+### DATE:         28/10/2026                                                                   
 ### REGISTER NUMBER : 212223240147
 ### AIM: 
- To learn the basic movements translation,scaling and rotation of game objects through code.
-### Procedure:
-1. Setup the Scene
-2. Open Unity and create a 3D Scene.
-3. Add three objects:Cube → Rename to Object1 (for movement),Sphere → Rename to Object2 (for rotation).Capsule → Rename to Object3 (for scaling).
-4. Add the Script,Create a C# Script → Name it TransformOperations.cs.
-5. Write the code for translation,scaling and rotation,save and close the script
-6. Save the script
-7. Select any empty GameObject (or create one: GameObject → Create Empty).
-8. Attach the TransformOperations script to it.
-9. In the Inspector, assign Object1 → Drag the Cube,Object2 → Drag the Sphere.Object3 → Drag the Capsule.
-10. Run the Scene Press Play ▶️ in Unity
-11. Stop the program.
-### Program 
+To write a program to simulate the process of seek and Flee behavior in Unity without NavigationMeshAgent. 
+### Algorithm:
+1. Create a New Unity Project by Open the  Unity Hub and create a new 3D Project,Name the project (e.g., SeekBehaviorDemo).
+2. Create the Moving Object
+   In the Hierarchy, right-click → 3D Object → Cube (or Sphere).
+   Rename it to Seeker and Reset its position:Select the Seeker, go to Inspector → Transform → Set Position to (0,0,0).
+3. Create the Target Object
+   Right-click in the Hierarchy → 3D Object → Sphere (or any other shape).
+   Rename it to Target. Move it away from Seeker, e.g., set Position to (5, 0, 5).
+   Select the Target, add a Material, and change the color. (if needed) 
+4. Adding the Seek Behavior Script
+   Create the Script-In the Project Window, go to the Assets folder.
+   Right-click → Create → C# Script.
+5. Write a script for seek behavior and save it
+6. Attach the Script
+   Select Seeker in the Hierarchy - Drag & Drop the SeekBehavior script onto the Inspector Panel.
+   Drag & Drop the Target from the Hierarchy into the "Target" field in the script component.
+12.  Write a script for flee behavior and attach it to target
+13.  Run the game
+14. Stop the program
+    
+### Program:
 ```
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class TransformOperations : MonoBehaviour
+public class seekScript : MonoBehaviour
 {
-    public Transform object1; // Object for translation
-    public Transform object2; // Object for rotation
-    public Transform object3; // Object for scaling
+    // Start is called before the first frame update
+    public Transform target;  // The object to seek
+    public float speed = 5f;  // Movement speed
+    void Start()
+    {
+        
+    }
 
-    public float moveSpeed = 2f;
-    public float rotateSpeed = 50f;
-    public float scaleSpeed = 0.5f;
-
+    // Update is called once per frame
     void Update()
     {
-        // Translation along X-axis
-        if (object1 != null)
-        {
-            object1.Translate(0.02f, 0f, 0f);
-        }
+        if (target == null) return;  // Exit if no target is assigned
 
-        // Rotation around Y-axis
-        if (object2 != null)
-        {
-            object2.Rotate(0f, 0.02f, 0f);
-        }
+        // Calculate the desired direction
+        Vector3 direction = (target.position - transform.position).normalized;
 
-        // Scaling along X and Y axes
-        if (object3 != null)
-        {
-            object3.localScale += new Vector3(0.02f, 0.02f, 0f);
-        }
+        // Move the object towards the target
+        transform.position += direction * speed * Time.deltaTime;
     }
 }
+```
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
+public class fleeScript : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public Transform target;  // The object to seek
+    public float speed = 5f;  // Movement speed
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (target == null) return;  // Exit if no target is assigned
+
+        // Calculate the desired direction
+        Vector3 direction = (transform.position-target.position).normalized;
+
+        // Move the object towards the target
+        transform.position += direction * speed * Time.deltaTime;
+    }
+}
 ```
 ### Output:
 
 
-<img width="1380" height="625" alt="image" src="https://github.com/user-attachments/assets/27d26bc1-7e60-43a8-810a-849975f52d8b" />
+<img width="710" height="626" alt="image" src="https://github.com/user-attachments/assets/c71b3556-215e-42b0-9f80-10c25bbfb028" />
 
 
-<img width="1394" height="609" alt="image" src="https://github.com/user-attachments/assets/d08dd349-e49f-4750-8bf2-5801d645f1c3" />
 
 
-<img width="769" height="450" alt="image" src="https://github.com/user-attachments/assets/c8ea6827-03ca-48b9-8506-26977807bfc2" />
-
+<img width="1314" height="683" alt="image" src="https://github.com/user-attachments/assets/9e6cb4f2-041e-4e32-96ef-032c14edd7ea" />
 
 
 
 ### Result:
-Thus the basic movement is learned through scripting
+Thus the simple seek behavior was implemented successfully.
