@@ -1,40 +1,46 @@
-# Ex.No: 1  Installation of Unity for Game Development
-### DATE:      26-10-2026                                                                      
+# Ex.No: 2  Welcome Script in Unity
+### DATE:     26-10-2026                                                                       
 ### REGISTER NUMBER : 212223240147
 ### AIM: 
-To install Unity2022.3.57f1 or higher version for Game Development.
+ To learn the basic scripting in Unity and print welcome message in Console window. 
 ### Procedure:
-1. Go to website https://unity.com/releases/editor/archive or https://unity.com/download  and choose the corresponding Unity Hub and download it.
-2. Create a personal login and choose the plan
-   
-   ![image](https://github.com/user-attachments/assets/f6a2db46-908f-4a91-b63d-794af5cb35d8)
-   
-3. Open the unity Hub and choose install button.
-   
-   ![image](https://github.com/user-attachments/assets/ecbd5e46-cd02-4966-a470-4833e05c2574)
-   
-4. Choose Unity install editor and specify the location
-   
- ![image](https://github.com/user-attachments/assets/d9e882d1-a73e-4704-a554-2ea4eb1964c7)
+1. Start the program
+2. Open the Unity hub and Create a new 3D project
+3. In Assets window, create the new folder and name it as Scripts
+4. Create a new script with file name as FirstScript
+5. Open the Script and print message "Welcome to Unity" inside the start function
+6. Save the script
+7. Create a new 3D game object in Hierarchy window and name it as 3DObject.
+8. Add the component Firstscript in inspector window of 3Dobject.
+9. Run the program
+10. Stop the program.
+### Program 
+```
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public class FirstScript : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        print("Welcome to Unity");
+    }
 
-5.  Add modules Microsoft Visual studio community 2022 ,documentation and continue
-6.  After unity hub editor and  Visual studio community 2022 installation proceeds
-   
-   ![image](https://github.com/user-attachments/assets/4425bc37-99c3-4fc6-b887-da5366ae9860)
-   
-7.Now install shows like 
-
-![image](https://github.com/user-attachments/assets/7e1dd5c5-4398-4c10-89cd-5f0442f49c59)
-
-8.Select projects and create new 2D or 3D project and verify all are working
-
-![image](https://github.com/user-attachments/assets/c902763e-4ba5-42b7-8251-a74db9ba5a42)
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+```
 ### Output:
 
-<img width="1270" height="695" alt="image" src="https://github.com/user-attachments/assets/ea1188e2-b4f3-46c1-b09c-773b9d191317" />
+<img width="1494" height="884" alt="image" src="https://github.com/user-attachments/assets/3c84a3a3-ed23-4c13-a9e8-51e77af604c1" />
 
-<img width="1244" height="658" alt="image" src="https://github.com/user-attachments/assets/7ae7cc7c-f7dc-4823-82ef-fffb059108fe" />
+<img width="943" height="276" alt="image" src="https://github.com/user-attachments/assets/65d4c4fd-2c9f-4f3d-b4c3-19a523fae78d" />
 
 
 ### Result:
-Thus the unity installation was completed sucessfully.
+Thus the welcome script was printed on Console Window  sucessfully.
+
