@@ -1,46 +1,71 @@
-# Ex.No: 2  Welcome Script in Unity
-### DATE:     26-10-2026                                                                       
+# Ex.No: 3  Basic movements in Unity 
+### DATE:            26-10-2026                                                                
 ### REGISTER NUMBER : 212223240147
 ### AIM: 
- To learn the basic scripting in Unity and print welcome message in Console window. 
+ To learn the basic movements translation,scaling and rotation of game objects through code.
 ### Procedure:
-1. Start the program
-2. Open the Unity hub and Create a new 3D project
-3. In Assets window, create the new folder and name it as Scripts
-4. Create a new script with file name as FirstScript
-5. Open the Script and print message "Welcome to Unity" inside the start function
+1. Setup the Scene
+2. Open Unity and create a 3D Scene.
+3. Add three objects:Cube → Rename to Object1 (for movement),Sphere → Rename to Object2 (for rotation).Capsule → Rename to Object3 (for scaling).
+4. Add the Script,Create a C# Script → Name it TransformOperations.cs.
+5. Write the code for translation,scaling and rotation,save and close the script
 6. Save the script
-7. Create a new 3D game object in Hierarchy window and name it as 3DObject.
-8. Add the component Firstscript in inspector window of 3Dobject.
-9. Run the program
-10. Stop the program.
+7. Select any empty GameObject (or create one: GameObject → Create Empty).
+8. Attach the TransformOperations script to it.
+9. In the Inspector, assign Object1 → Drag the Cube,Object2 → Drag the Sphere.Object3 → Drag the Capsule.
+10. Run the Scene Press Play ▶️ in Unity
+11. Stop the program.
 ### Program 
 ```
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-public class FirstScript : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        print("Welcome to Unity");
-    }
 
-    // Update is called once per frame
+using UnityEngine;
+
+public class TransformOperations : MonoBehaviour
+{
+    public Transform object1; // Object for translation
+    public Transform object2; // Object for rotation
+    public Transform object3; // Object for scaling
+
+    public float moveSpeed = 2f;
+    public float rotateSpeed = 50f;
+    public float scaleSpeed = 0.5f;
+
     void Update()
     {
-        
+        // Translation along X-axis
+        if (object1 != null)
+        {
+            object1.Translate(0.02f, 0f, 0f);
+        }
+
+        // Rotation around Y-axis
+        if (object2 != null)
+        {
+            object2.Rotate(0f, 0.02f, 0f);
+        }
+
+        // Scaling along X and Y axes
+        if (object3 != null)
+        {
+            object3.localScale += new Vector3(0.02f, 0.02f, 0f);
+        }
     }
 }
+
 ```
 ### Output:
 
-<img width="1494" height="884" alt="image" src="https://github.com/user-attachments/assets/3c84a3a3-ed23-4c13-a9e8-51e77af604c1" />
 
-<img width="943" height="276" alt="image" src="https://github.com/user-attachments/assets/65d4c4fd-2c9f-4f3d-b4c3-19a523fae78d" />
+<img width="1380" height="625" alt="image" src="https://github.com/user-attachments/assets/27d26bc1-7e60-43a8-810a-849975f52d8b" />
+
+
+<img width="1394" height="609" alt="image" src="https://github.com/user-attachments/assets/d08dd349-e49f-4750-8bf2-5801d645f1c3" />
+
+
+<img width="769" height="450" alt="image" src="https://github.com/user-attachments/assets/c8ea6827-03ca-48b9-8506-26977807bfc2" />
+
+
 
 
 ### Result:
-Thus the welcome script was printed on Console Window  sucessfully.
-
+Thus the basic movement is learned through scripting
